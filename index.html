@@ -94,19 +94,62 @@
             </div>
         </div>
 
-        <div class="card mb-3">
-            <div class="row g-0">
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Resultado</h5>
-                        <p class="card-text">Receita (+)</p>
-                        <p class="card-text" id="vSalarioBruto"></p>
-                        <p class="card-text" id="vValeAlimentacao"></p>
-                        <p class="card-text" id="vValeTransporte"></p>
-                        <p class="card-text" id="vBeneficios"></p>
-                        <p class="card-text" id="vFeriasMensal"></p>
-                        <p class="card-text" id="vDecimoTerceiroMensal"></p>
-                        <p class="card-text">Descontos (-)</p>
+        <div class="container my-4">
+            <div class="card shadow-sm" style="max-width: 400px; margin: auto;">
+                <div class="card-body p-3">
+                    <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
+
+                    <!-- Receitas -->
+                    <h6 class="fw-bold text-success">Receitas (+)</h6>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Salário Bruto</span> <strong id="vSalarioBruto">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Vale Alimentação</span> <strong id="vValeAlimentacao">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Vale Transporte</span> <strong id="vValeTransporte">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Outros Benefícios</span> <strong id="vBeneficios">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Valor Férias Mensal</span> <strong id="vFeriasMensal">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Valor Décimo Terceiro Mensal</span> <strong id="vDecimoTerceiroMensal">R$ 0,00</strong>
+                        </li>
+                    </ul>
+
+                    <!-- Descontos -->
+                    <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>INSS</span> <strong id="dINSS">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>IRPF</span> <strong id="dIRPF">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Desc. Vale Transporte</span> <strong id="dValeTransporte">R$ 0,00</strong>
+                        </li>
+                    </ul>
+
+                    <!-- Resultado Final -->
+                    
+                    <div class="mt-3 p-2 text-center bg-light rounded">
+                        <h6 class="fw-bold text-primary mb-0">Salário Líquido:</h6>
+                        <h5 class="fw-bold text-success" id="tSalarioLiquido">R$ 0,00</h5>
+                    </div>
+                    
+                    <div class="mt-3 p-2 text-center bg-light rounded">
+                        <h6 class="fw-bold text-primary mb-0">Salário Final (Incluído Férias e 13º):</h6>
+                        <h5 class="fw-bold text-success" id="tSalarioFinal">R$ 0,00</h5>
+                    </div>
+                    <!-- Valor como PJ -->
+                    <div class="alert alert-success mt-3 text-center p-2 small">
+                        O salário equivalente como PJ seria de <strong id="tSalarioPJ">R$ 0,00</strong>.
                     </div>
                 </div>
             </div>
