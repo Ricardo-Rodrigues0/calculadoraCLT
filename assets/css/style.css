@@ -52,6 +52,16 @@ html, body {
     max-width: 30rem;
 }
 
+.form-control{
+    border-color: #dcc8ff;
+    color: #7e5eb6;
+}
+
+.form-label {
+    color: #551eb4;
+    border-color: #dcc8ff;
+}
+
 /* Responsividade: em telas menores, empilhar os elementos */
 @media (max-width: 768px) {
     .container-fluid {
