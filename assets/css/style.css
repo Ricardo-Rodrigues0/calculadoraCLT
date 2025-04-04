@@ -62,6 +62,10 @@ html, body {
     border-color: #dcc8ff;
 }
 
+.ocultar {
+    display: none;
+}
+
 /* Responsividade: em telas menores, empilhar os elementos */
 @media (max-width: 768px) {
     .container-fluid {

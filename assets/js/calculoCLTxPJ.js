@@ -1,3 +1,19 @@
+function btnCalculadoraCLTxPJ() {
+    let cardMenu = document.querySelector(".cardMenu");
+    let cardCLTxPJ = document.querySelector(".cardCLTxPJ");
+
+    cardMenu.classList.add('ocultar');
+    cardCLTxPJ.classList.remove('ocultar');
+}
+
+function refazerCalculo() {
+    let cardResultadoCLT = document.querySelector(".cardResultadoCLT");
+    let cardCLTxPJ = document.querySelector(".cardCLTxPJ");
+
+    cardResultadoCLT.classList.add('ocultar');
+    cardCLTxPJ.classList.remove('ocultar');
+}
+
 function formatarValor(valor) {
     valor = valor.replace(/\./g, '');
     valor = valor.replace(',', '.');
@@ -6,6 +22,12 @@ function formatarValor(valor) {
 };
 
 function calcularCLTxPJ() {
+    let cardResultadoCLT = document.querySelector(".cardResultadoCLT");
+    let cardCLTxPJ = document.querySelector(".cardCLTxPJ");
+
+    cardResultadoCLT.classList.remove('ocultar');
+    cardCLTxPJ.classList.add('ocultar');
+
     let salarioBruto = formatarValor(document.getElementById("salarioBruto").value);
     let valeAlimentacao = formatarValor(document.getElementById("alimentacao").value);
     let valeTransporte = formatarValor(document.getElementById("transporte").value);

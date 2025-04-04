@@ -24,14 +24,15 @@
             </div>
 
             <!-- Lado direito com card e botões -->
-            <!-- <div class="col-md-5 d-flex justify-content-center align-items-center">
-                <div class="card">
+            <div class="col-md-5 d-flex justify-content-center align-items-center">
+                <div class="card cardMenu">
                     <div class="card-body text-center">
                         <a class="navbar-brand mx-auto mb-4 d-flex flex-column align-items-center" href="./index.html">
                             <img src="./assets/img/logo.png" alt="Logo" width="100" height="90" class="mb-2">
                             <span>Calculadora CLT</span>
                         </a>
-                        <a href="#" class="btn btn-roxo mb-3 mt-4">• Calculadora CTL x PJ</a>
+                        <a href="#" onclick="btnCalculadoraCLTxPJ()" class="btn btn-roxo mb-3 mt-4">• Calculadora CTL x
+                            PJ</a>
                         <a href="#" class="btn btn-roxo mb-3">• Calculadora de Férias</a>
                         <a href="#" class="btn btn-roxo mb-3">• Calculadora de Hora Extra</a>
                         <a href="#" class="btn btn-roxo mb-3">• Calculadora de 13°</a>
@@ -39,135 +40,145 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
-            <div class="col-md-5 d-flex justify-content-center align-items-center">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Calculadora CLT x PJ</h5>
-                        <div class="row g-3">
-                            <div class="col-md-12">
-                                <label for="salarioBruto" class="form-label">Salário Bruto</label>
-                                <div class="input-group">
-                                    <div class="input-group-text">R$</div>
-                                    <input type="text" class="form-control" id="salarioBruto" placeholder="0,00"
-                                        value="0,00" required>
-                                </div>
+
+        <!-- X===============================================================================X -->
+        <!--                            Calculadora CLT x PJ -->
+        <!-- X===============================================================================X -->
+
+        <div class="col-md-5 d-flex justify-content-center align-items-center">
+            <div class="card cardCLTxPJ ocultar">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Calculadora CLT x PJ</h5>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label for="salarioBruto" class="form-label">Salário Bruto</label>
+                            <div class="input-group">
+                                <div class="input-group-text">R$</div>
+                                <input type="text" class="form-control" id="salarioBruto" placeholder="0,00"
+                                    value="0,00" required>
                             </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="alimentacao" class="form-label">Vale Alimentação</label>
-                                <div class="input-group">
-                                    <div class="input-group-text">R$</div>
-                                    <input type="text" class="form-control" id="alimentacao" placeholder="0,00"
-                                        value="0,00">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="transporte" class="form-label">Vale Transporte</label>
-                                <div class="input-group">
-                                    <div class="input-group-text">R$</div>
-                                    <input type="text" class="form-control" id="transporte" placeholder="0,00"
-                                        value="0,00">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="beneficios" class="form-label">Outro Benefícios</label>
-                                <div class="input-group">
-                                    <div class="input-group-text">R$</div>
-                                    <input type="text" class="form-control" id="beneficios" placeholder="0,00"
-                                        value="0,00">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-2">
-                                <label for="dependentes" class="form-label">Dependentes</label>
-                                <input type="number" class="form-control" id="dependentes" placeholder="0" value="0">
-                            </div>
-
-                            <button class="btn btn-primary w-100" onclick="calcularCLTxPJ()">Comparar</button>
                         </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label for="alimentacao" class="form-label">Vale Alimentação</label>
+                            <div class="input-group">
+                                <div class="input-group-text">R$</div>
+                                <input type="text" class="form-control" id="alimentacao" placeholder="0,00"
+                                    value="0,00">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label for="transporte" class="form-label">Vale Transporte</label>
+                            <div class="input-group">
+                                <div class="input-group-text">R$</div>
+                                <input type="text" class="form-control" id="transporte" placeholder="0,00" value="0,00">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label for="beneficios" class="form-label">Outro Benefícios</label>
+                            <div class="input-group">
+                                <div class="input-group-text">R$</div>
+                                <input type="text" class="form-control" id="beneficios" placeholder="0,00" value="0,00">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label for="dependentes" class="form-label">Dependentes</label>
+                            <input type="number" class="form-control" id="dependentes" placeholder="0" value="0">
+                        </div>
+
+                        <button class="btn btn-primary w-100" onclick="calcularCLTxPJ()">Comparar</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="container my-4">
-            <div class="card shadow-sm" style="max-width: 400px; margin: auto;">
-                <div class="card-body p-3">
-                    <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
+    <div class="container my-4">
+        <div class="card shadow-sm cardResultadoCLT ocultar" style="max-width: 400px; margin: auto;">
+            <div class="card-body p-3">
+                <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
 
-                    <!-- Receitas -->
-                    <h6 class="fw-bold text-success">Receitas (+)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Salário Bruto</span> <strong id="vSalarioBruto">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Vale Alimentação</span> <strong id="vValeAlimentacao">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Vale Transporte</span> <strong id="vValeTransporte">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Outros Benefícios</span> <strong id="vBeneficios">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Valor Férias Mensal</span> <strong id="vFeriasMensal">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Valor Décimo Terceiro Mensal</span> <strong id="vDecimoTerceiroMensal">R$ 0,00</strong>
-                        </li>
-                    </ul>
+                <h6 class="fw-bold text-success">Receitas (+)</h6>
+                <ul class="list-group list-group-flush small">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Salário Bruto</span> <strong id="vSalarioBruto">R$ 0,00</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Vale Alimentação</span> <strong id="vValeAlimentacao">R$ 0,00</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Vale Transporte</span> <strong id="vValeTransporte">R$ 0,00</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Outros Benefícios</span> <strong id="vBeneficios">R$ 0,00</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Valor Férias Mensal</span> <strong id="vFeriasMensal">R$ 0,00</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Valor Décimo Terceiro Mensal</span> <strong id="vDecimoTerceiroMensal">R$ 0,00</strong>
+                    </li>
+                </ul>
 
-                    <!-- Descontos -->
-                    <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>INSS</span> <strong id="dINSS">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>IRPF</span> <strong id="dIRPF">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Desc. Vale Transporte</span> <strong id="dValeTransporte">R$ 0,00</strong>
-                        </li>
-                    </ul>
+                <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
+                <ul class="list-group list-group-flush small">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>INSS</span> <strong id="dINSS">R$ 0,00</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>IRPF</span> <strong id="dIRPF">R$ 0,00</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Desc. Vale Transporte</span> <strong id="dValeTransporte">R$ 0,00</strong>
+                    </li>
+                </ul>
 
-                    <!-- Resultado Final -->
-                    
-                    <div class="mt-3 p-2 text-center bg-light rounded">
-                        <h6 class="fw-bold text-primary mb-0">Salário Líquido:</h6>
-                        <h5 class="fw-bold text-success" id="tSalarioLiquido">R$ 0,00</h5>
-                    </div>
-                    
-                    <div class="mt-3 p-2 text-center bg-light rounded">
-                        <h6 class="fw-bold text-primary mb-0">Salário Final (Incluído Férias e 13º):</h6>
-                        <h5 class="fw-bold text-success" id="tSalarioFinal">R$ 0,00</h5>
-                    </div>
-                    <!-- Valor como PJ -->
-                    <div class="alert alert-success mt-3 text-center p-2 small">
-                        O salário equivalente como PJ seria de <strong id="tSalarioPJ">R$ 0,00</strong>.
-                    </div>
+                <div class="mt-3 p-2 text-center bg-light rounded">
+                    <h6 class="fw-bold text-primary mb-0">Salário Líquido:</h6>
+                    <h5 class="fw-bold text-success" id="tSalarioLiquido">R$ 0,00</h5>
+                </div>
+
+                <div class="mt-3 p-2 text-center bg-light rounded">
+                    <h6 class="fw-bold text-primary mb-0">Salário Final (Incluído Férias e 13º):</h6>
+                    <h5 class="fw-bold text-success" id="tSalarioFinal">R$ 0,00</h5>
+                </div>
+                <div class="alert alert-success mt-3 text-center p-2 small">
+                    O salário equivalente como PJ seria de <strong id="tSalarioPJ">R$ 0,00</strong>.
+                </div>
+
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a onclick="refazerCalculo()" type="button" class="btn refazerCalculo btn-primary">Refazer
+                        Calculo</a>
+                    <a href="./index.html" type="button" class="btn btn-primary">Início</a>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- X===============================================================================X -->
+    <!--                            Calculadora de Férias -->
+    <!-- X===============================================================================X -->
 
 
-        <!-- Footer -->
-        <footer class="footer text-white py-3 text-center">
-            <div class="container">
-                <p class="mb-0">
-                    &copy; 2025 Todos os direitos reservados | Desenvolvido por <strong>Ricardo Rodrigues</strong> |
-                    <a href="https://www.linkedin.com/in/ricardo-rodrigues0/" class="text-white text-decoration-none"
-                        target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-linkedin"></i> LinkedIn
-                    </a>
-                </p>
-            </div>
-        </footer>
+    
+
+
+    <footer class="footer text-white py-3 text-center">
+        <div class="container">
+            <p class="mb-0">
+                &copy; 2025 Todos os direitos reservados | Desenvolvido por <strong>Ricardo Rodrigues</strong> |
+                <a href="https://www.linkedin.com/in/ricardo-rodrigues0/" class="text-white text-decoration-none"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-linkedin"></i> LinkedIn
+                </a>
+            </p>
+        </div>
+    </footer>
     </div>
 
 
