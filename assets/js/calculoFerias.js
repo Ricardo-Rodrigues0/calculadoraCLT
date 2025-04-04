@@ -1,4 +1,27 @@
+function btnCalculadoraFerias() {
+    let cardMenu = document.querySelector(".cardMenu");
+    let cardFerias = document.querySelector(".cardFerias");
+
+    cardMenu.classList.add('ocultar');
+    cardFerias.classList.remove('ocultar');
+}
+
+function refazerCalculoFerias() {
+    let cardResultadoFerias = document.querySelector(".cardResultadoFerias");
+    let cardFerias = document.querySelector(".cardFerias");
+
+    cardResultadoFerias.classList.add('ocultar');
+    cardFerias.classList.remove('ocultar');
+}
+
 function calcularFerias() {
+    let cardResultadoFerias = document.querySelector(".cardResultadoFerias");
+    let cardFerias = document.querySelector(".cardFerias");
+
+    cardResultadoFerias.classList.remove('ocultar');
+    cardFerias.classList.add('ocultar');
+
+
     let salarioBrutoFerias = formatarValor(document.getElementById("salarioBrutoFerias").value);
     let mesesTrabalhado = parseInt(document.getElementById("mesesTrabalhado").value);
 

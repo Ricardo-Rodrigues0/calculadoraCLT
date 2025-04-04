@@ -33,7 +33,7 @@
                         </a>
                         <a href="#" onclick="btnCalculadoraCLTxPJ()" class="btn btn-roxo mb-3 mt-4">• Calculadora CTL x
                             PJ</a>
-                        <a href="#" class="btn btn-roxo mb-3">• Calculadora de Férias</a>
+                        <a href="#" onclick="btnCalculadoraFerias()" class="btn btn-roxo mb-3">• Calculadora de Férias</a>
                         <a href="#" class="btn btn-roxo mb-3">• Calculadora de Hora Extra</a>
                         <a href="#" class="btn btn-roxo mb-3">• Calculadora de 13°</a>
                         <a href="#" class="btn btn-roxo mb-3">• Calculadora de Rescisão</a>
@@ -166,7 +166,7 @@
         <!-- X===============================================================================X -->
 
         <div class="col-md-5 d-flex justify-content-center align-items-center">
-            <div class="card cardFerias">
+            <div class="card cardFerias ocultar">
                 <div class="card-body">
                     <h5 class="card-title text-center">Calculadora de Férias</h5>
                     <div class="row g-3 mt-3">
@@ -195,7 +195,7 @@
 
 
         <div class="container my-4">
-            <div class="card shadow-sm cardResultadoFerias" style="max-width: 400px; margin: auto;">
+            <div class="card shadow-sm cardResultadoFerias ocultar" style="max-width: 400px; margin: auto;">
                 <div class="card-body p-3">
                     <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
         
@@ -232,7 +232,7 @@
                     </div>
         
                     <div class="btn-group mt-4 text-center w-100" role="group">
-                        <a onclick="refazerCalculo()" class="btn refazerCalculo btnCalculo">Refazer Cálculo</a>
+                        <a onclick="refazerCalculoFerias()" class="btn refazerCalculo btnCalculo">Refazer Cálculo</a>
                         <a href="./index.html" class="btn btnCalculo2">Início</a>
                     </div>
                 </div>
