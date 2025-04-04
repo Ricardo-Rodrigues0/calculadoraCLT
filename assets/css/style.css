@@ -1,5 +1,6 @@
 /* Garante que o conteúdo ocupe toda a tela */
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -29,7 +30,7 @@ html, body {
     padding: 20px;
 }
 
-/* Estilização do botão */
+/* Estilização dos botões */
 .btn-roxo {
     background-color: #6f42c1;
     color: white;
@@ -38,6 +39,26 @@ html, body {
 }
 
 .btn-roxo:hover {
+    background-color: #5a30b0;
+    color: rgb(238, 214, 255);
+}
+
+.btnCalculo {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.btnCalculo2 {
+    background-color: #6431c4;
+    color: white;
+}
+
+.btnCalculo2:hover {
+    background-color: #6431c4;
+    color: rgb(238, 214, 255);
+}
+
+.btnCalculo:hover {
     background-color: #5a30b0;
     color: rgb(238, 214, 255);
 }
@@ -52,7 +73,7 @@ html, body {
     max-width: 30rem;
 }
 
-.form-control{
+.form-control {
     border-color: #dcc8ff;
     color: #7e5eb6;
 }

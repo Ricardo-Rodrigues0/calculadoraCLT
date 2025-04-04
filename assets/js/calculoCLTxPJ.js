@@ -14,13 +14,6 @@ function refazerCalculo() {
     cardCLTxPJ.classList.remove('ocultar');
 }
 
-function formatarValor(valor) {
-    valor = valor.replace(/\./g, '');
-    valor = valor.replace(',', '.');
-
-    return parseFloat(valor) || 0;
-};
-
 function calcularCLTxPJ() {
     let cardResultadoCLT = document.querySelector(".cardResultadoCLT");
     let cardCLTxPJ = document.querySelector(".cardCLTxPJ");

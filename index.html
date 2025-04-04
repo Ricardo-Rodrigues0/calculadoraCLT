@@ -91,94 +91,168 @@
                             <input type="number" class="form-control" id="dependentes" placeholder="0" value="0">
                         </div>
 
-                        <button class="btn btn-primary w-100" onclick="calcularCLTxPJ()">Comparar</button>
+                        <button class="btn btnCalculo w-100" onclick="calcularCLTxPJ()">Comparar</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container my-4">
-        <div class="card shadow-sm cardResultadoCLT ocultar" style="max-width: 400px; margin: auto;">
-            <div class="card-body p-3">
-                <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
 
-                <h6 class="fw-bold text-success">Receitas (+)</h6>
-                <ul class="list-group list-group-flush small">
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Salário Bruto</span> <strong id="vSalarioBruto">R$ 0,00</strong>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Vale Alimentação</span> <strong id="vValeAlimentacao">R$ 0,00</strong>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Vale Transporte</span> <strong id="vValeTransporte">R$ 0,00</strong>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Outros Benefícios</span> <strong id="vBeneficios">R$ 0,00</strong>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Valor Férias Mensal</span> <strong id="vFeriasMensal">R$ 0,00</strong>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Valor Décimo Terceiro Mensal</span> <strong id="vDecimoTerceiroMensal">R$ 0,00</strong>
-                    </li>
-                </ul>
+        <div class="container my-4">
+            <div class="card shadow-sm cardResultadoCLT ocultar" style="max-width: 400px; margin: auto;">
+                <div class="card-body p-3">
+                    <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
 
-                <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
-                <ul class="list-group list-group-flush small">
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>INSS</span> <strong id="dINSS">R$ 0,00</strong>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>IRPF</span> <strong id="dIRPF">R$ 0,00</strong>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Desc. Vale Transporte</span> <strong id="dValeTransporte">R$ 0,00</strong>
-                    </li>
-                </ul>
+                    <h6 class="fw-bold text-success">Receitas (+)</h6>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Salário Bruto</span> <strong id="vSalarioBruto">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Vale Alimentação</span> <strong id="vValeAlimentacao">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Vale Transporte</span> <strong id="vValeTransporte">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Outros Benefícios</span> <strong id="vBeneficios">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Valor Férias Mensal</span> <strong id="vFeriasMensal">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Valor Décimo Terceiro Mensal</span> <strong id="vDecimoTerceiroMensal">R$
+                                0,00</strong>
+                        </li>
+                    </ul>
 
-                <div class="mt-3 p-2 text-center bg-light rounded">
-                    <h6 class="fw-bold text-primary mb-0">Salário Líquido:</h6>
-                    <h5 class="fw-bold text-success" id="tSalarioLiquido">R$ 0,00</h5>
-                </div>
+                    <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>INSS</span> <strong id="dINSS">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>IRPF</span> <strong id="dIRPF">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Desc. Vale Transporte</span> <strong id="dValeTransporte">R$ 0,00</strong>
+                        </li>
+                    </ul>
 
-                <div class="mt-3 p-2 text-center bg-light rounded">
-                    <h6 class="fw-bold text-primary mb-0">Salário Final (Incluído Férias e 13º):</h6>
-                    <h5 class="fw-bold text-success" id="tSalarioFinal">R$ 0,00</h5>
-                </div>
-                <div class="alert alert-success mt-3 text-center p-2 small">
-                    O salário equivalente como PJ seria de <strong id="tSalarioPJ">R$ 0,00</strong>.
-                </div>
+                    <div class="mt-3 p-2 text-center bg-light rounded">
+                        <h6 class="fw-bold text-primary mb-0">Salário Líquido:</h6>
+                        <h5 class="fw-bold text-success" id="tSalarioLiquido">R$ 0,00</h5>
+                    </div>
 
-                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                    <a onclick="refazerCalculo()" type="button" class="btn refazerCalculo btn-primary">Refazer
-                        Calculo</a>
-                    <a href="./index.html" type="button" class="btn btn-primary">Início</a>
+                    <div class="mt-3 p-2 text-center bg-light rounded">
+                        <h6 class="fw-bold text-primary mb-0">Salário Final (Incluído Férias e 13º):</h6>
+                        <h5 class="fw-bold text-success" id="tSalarioFinal">R$ 0,00</h5>
+                    </div>
+                    <div class="alert alert-success mt-3 text-center p-2 small">
+                        O salário equivalente como PJ seria de <strong id="tSalarioPJ">R$ 0,00</strong>.
+                    </div>
+
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <a onclick="refazerCalculo()" type="button" class="btn refazerCalculo btn-primary">Refazer
+                            Calculo</a>
+                        <a href="./index.html" type="button" class="btn btn-primary">Início</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- X===============================================================================X -->
-    <!--                            Calculadora de Férias -->
-    <!-- X===============================================================================X -->
+        <!-- X===============================================================================X -->
+        <!--                            Calculadora de Férias -->
+        <!-- X===============================================================================X -->
 
+        <div class="col-md-5 d-flex justify-content-center align-items-center">
+            <div class="card cardFerias">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Calculadora de Férias</h5>
+                    <div class="row g-3 mt-3">
+                        <div class="col-md-6">
+                            <label for="salarioBrutoFerias" class="form-label">Salário Bruto</label>
+                            <div class="input-group">
+                                <div class="input-group-text">R$</div>
+                                <input type="text" class="form-control" id="salarioBrutoFerias" placeholder="0,00"
+                                    value="0,00" required>
+                            </div>
+                        </div>
 
-    
+                        <div class="col-md-6 mb-2">
+                            <label for="alimentacao" class="form-label">Meses Trabalhado</label>
+                            <div class="input-group">
+                                <div class="input-group-text">🗓️</div>
+                                <input type="number" class="form-control" id="mesesTrabalhado" placeholder="0">
+                            </div>
+                        </div>
 
-
-    <footer class="footer text-white py-3 text-center">
-        <div class="container">
-            <p class="mb-0">
-                &copy; 2025 Todos os direitos reservados | Desenvolvido por <strong>Ricardo Rodrigues</strong> |
-                <a href="https://www.linkedin.com/in/ricardo-rodrigues0/" class="text-white text-decoration-none"
-                    target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-linkedin"></i> LinkedIn
-                </a>
-            </p>
+                        <button class="btn btnCalculo w-100" onclick="calcularFerias()">Calcular Férias</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+
+
+        <div class="container my-4">
+            <div class="card shadow-sm cardResultadoFerias" style="max-width: 400px; margin: auto;">
+                <div class="card-body p-3">
+                    <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
+        
+                    <h6 class="fw-bold text-success">Receitas (+)</h6>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Salário Bruto</span> <strong id="vSalarioBrutoFerias">R$ 0,00</strong>
+                        </li>
+                    </ul>
+        
+                    <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>INSS</span> <strong id="dINSSFerias">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>IRPF</span> <strong id="dIRPFFerias">R$ 0,00</strong>
+                        </li>
+                    </ul>
+        
+                    <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Meses Trabalhados</span> <strong id="vMesesTrabalhados">0</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Status das Férias</span> <strong id="vStatusFerias">Aguardando cálculo...</strong>
+                        </li>
+                    </ul>
+        
+                    <div class="mt-3 p-2 text-center bg-light rounded">
+                        <h6 class="fw-bold text-primary mb-0">Férias Líquida:</h6>
+                        <h5 class="fw-bold text-success" id="tFeriasLiquido">R$ 0,00</h5>
+                    </div>
+        
+                    <div class="btn-group mt-4 text-center w-100" role="group">
+                        <a onclick="refazerCalculo()" class="btn refazerCalculo btnCalculo">Refazer Cálculo</a>
+                        <a href="./index.html" class="btn btnCalculo2">Início</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <footer class="footer text-white py-3 text-center">
+            <div class="container">
+                <p class="mb-0">
+                    &copy; 2025 Todos os direitos reservados | Desenvolvido por <strong>Ricardo Rodrigues</strong> |
+                    <a href="https://www.linkedin.com/in/ricardo-rodrigues0/" class="text-white text-decoration-none"
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-linkedin"></i> LinkedIn
+                    </a>
+                </p>
+            </div>
+        </footer>
     </div>
 
 
@@ -194,6 +268,9 @@
 
     <!-- Importando um arquivo JS para dentro do projeto | Ele contém a função de calculo CLT x PJ. -->
     <script src="./assets/js/calculoCLTxPJ.js"></script>
+
+    <!-- Importando um arquivo JS para dentro do projeto | Ele contém a função de calculo CLT x PJ. -->
+    <script src="./assets/js/calculoFerias.js"></script>
 </body>
 
 </html>
