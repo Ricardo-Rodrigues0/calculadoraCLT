@@ -21,14 +21,19 @@ function calcularCLTxPJ() {
     cardResultadoCLT.classList.remove('ocultar');
     cardCLTxPJ.classList.add('ocultar');
 
-    let salarioBruto = formatarValor(document.getElementById("salarioBruto").value);
-    let valeAlimentacao = formatarValor(document.getElementById("alimentacao").value);
-    let valeTransporte = formatarValor(document.getElementById("transporte").value);
-    let beneficios = formatarValor(document.getElementById("beneficios").value);
-    let dependentes = formatarValor(document.getElementById("dependentes").value);
+    let salarioBruto = formatarValor(document.getElementById("salarioBruto").value) || 0;
+    let valeAlimentacao = formatarValor(document.getElementById("alimentacao").value) || 0;
+    let valeTransporte = formatarValor(document.getElementById("transporte").value) || 0;
+    let beneficios = formatarValor(document.getElementById("beneficios").value) || 0;
 
     let feriasMensal = (salarioBruto / 12) * 1.3333;
     let decimoTerceiroMensal = salarioBruto / 12;
+
+    let salarioFinal = (salarioBruto + valeAlimentacao + valeTransporte + beneficios + feriasMensal + decimoTerceiroMensal) - calcularINSS() - calcularIRPF();
+    let salarioLiquido = (salarioBruto + valeAlimentacao + valeTransporte + beneficios) - calcularINSS() - calcularIRPF();
+
+    aliquotaPJ = 0.15;
+    let salarioPJ = aliquotaPJ > 0 ? (salarioFinal / (1 - aliquotaPJ)) : salarioFinal;
 
     function calcularINSS() {
         let inss = 0;
@@ -67,12 +72,6 @@ function calcularCLTxPJ() {
 
         return irpf;
     }
-
-    let salarioFinal = (salarioBruto + valeAlimentacao + valeTransporte + beneficios + feriasMensal + decimoTerceiroMensal) - calcularINSS() - calcularIRPF();
-    let salarioLiquido = (salarioBruto + valeAlimentacao + valeTransporte + beneficios) - calcularINSS() - calcularIRPF();
-
-    aliquotaPJ = 0.15;
-    let salarioPJ = aliquotaPJ > 0 ? (salarioFinal / (1 - aliquotaPJ)) : salarioFinal;
 
     document.getElementById("vSalarioBruto").innerText = `R$ ${salarioBruto.toFixed(2)}`;
     document.getElementById("vValeAlimentacao").innerText = `R$ ${valeAlimentacao.toFixed(2)}`;

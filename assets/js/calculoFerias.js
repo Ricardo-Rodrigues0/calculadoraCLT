@@ -22,11 +22,13 @@ function calcularFerias() {
     cardFerias.classList.add('ocultar');
 
 
-    let salarioBrutoFerias = formatarValor(document.getElementById("salarioBrutoFerias").value);
-    let mesesTrabalhado = parseInt(document.getElementById("mesesTrabalhado").value);
+    let salarioBrutoFerias = formatarValor(document.getElementById("salarioBrutoFerias").value) || 0;
+    let mesesTrabalhado = parseInt(document.getElementById("mesesTrabalhado").value) || 0;
 
     let feriasMensal = (salarioBrutoFerias * 1.3333) / 12;
     let ferias = feriasMensal * mesesTrabalhado;
+
+    let feriasLiquida = ferias - calcularINSS() - calcularIRPF();
 
     function calcularINSS() {
 
@@ -80,8 +82,6 @@ function calcularFerias() {
         };
     }
 
-    let feriasLiquida = ferias - calcularINSS() - calcularIRPF();
-
     document.getElementById("vSalarioBrutoFerias").innerText = `R$ ${salarioBrutoFerias.toFixed(2)}`;
 
     document.getElementById("dINSSFerias").innerHTML = `-R$ ${calcularINSS().toFixed(2)}`;
@@ -91,5 +91,4 @@ function calcularFerias() {
     document.getElementById("vStatusFerias").innerText = feriasVencida();
 
     document.getElementById("tFeriasLiquido").innerHTML = `R$ ${feriasLiquida.toFixed(2)}`;
-
 }

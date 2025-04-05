@@ -79,17 +79,12 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 mb-2">
+                        <div class="col-md-12 mb-2">
                             <label for="beneficios" class="form-label">Outro Benefícios</label>
                             <div class="input-group">
                                 <div class="input-group-text">R$</div>
                                 <input type="text" class="form-control" id="beneficios" placeholder="0,00" value="0,00">
                             </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="dependentes" class="form-label">Dependentes</label>
-                            <input type="number" class="form-control" id="dependentes" placeholder="0" value="0">
                         </div>
 
                         <button class="btn btnCalculo w-100" onclick="calcularCLTxPJ()">Comparar</button>
@@ -249,6 +244,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-center">Calculadora de Hora Extra</h5>
                     <div class="row g-3 mt-3">
+                        
                         <div class="col-md-12 mb-2">
                             <label for="salarioBrutoHoraExtra" class="form-label">Salário Bruto</label>
                             <div class="input-group">
@@ -269,7 +265,7 @@
 
                             <div class="input-group">
                                 <div class="input-group-text">🕑</div>
-                                <input type="number" class="form-control" id="HorasExtra50" placeholder="0" required>
+                                <input type="text" class="form-control" id="horasExtra50" placeholder="00:00">
                             </div>
                         </div>
 
@@ -283,11 +279,11 @@
                             </label>
                             <div class="input-group">
                                 <div class="input-group-text">🕑</div>
-                                <input type="number" class="form-control" id="HorasExtra100" placeholder="0" required>
+                                <input type="text" class="form-control" id="horasExtra100" placeholder="00:00">
                             </div>
                         </div>
 
-                        <button class="btn btnCalculo w-100" onclick="calcularFerias()">Calcular Hora Extra</button>
+                        <button class="btn btnCalculo w-100" onclick="calcularHoraExtra()">Calcular Hora Extra</button>
                     </div>
                 </div>
             </div>
@@ -305,32 +301,39 @@
                             <span>Salário Bruto</span> <strong id="vSalarioBrutoHoraExtra">R$ 0,00</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
-                            <span>Horas Extras</span> <strong id="vHoraExtra">R$ 0,00</strong>
+                            <span>Total de Horas Extras</span> <strong id="vHoraExtra">R$ 0,00</strong>
                         </li>
                     </ul>
 
                     <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
                     <ul class="list-group list-group-flush small">
                         <li class="list-group-item d-flex justify-content-between">
-                            <span>INSS</span> <strong id="dINSSHoraExtra">R$ 0,00</strong>
+                            <span>INSS (Previdência Social)</span> <strong id="dINSSHoraExtra">R$ 0,00</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
-                            <span>IRPF</span> <strong id="dIRPFHoraExtra">R$ 0,00</strong>
+                            <span>IRPF (Imposto de Renda)</span> <strong id="dIRPFHoraExtra">R$ 0,00</strong>
                         </li>
                     </ul>
+                    
 
                     <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
                     <ul class="list-group list-group-flush small">
                         <li class="list-group-item d-flex justify-content-between">
-                            <span>Qtd. Horas extras 50%</span> <strong id="vHorasTrabalhada50">0</strong>
+                            <span>Valor diário (baseado em 30 dias)</span> <strong id="vValorDia">00,00</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
-                            <span>Qtd. Horas extras 100%</span> <strong id="vHorasTrabalhada100">0</strong>
+                            <span>Valor da hora (baseado em 8h/dia)</span> <strong id="vValorHora">00,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Horas extras 50% (dias úteis)</span> <strong id="vHorasTrabalhada50">00:00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Horas extras 100% (finais de semana/feriados)</span> <strong id="vHorasTrabalhada100">00:00</strong>
                         </li>
                     </ul>
 
                     <div class="mt-3 p-2 text-center bg-light rounded">
-                        <h6 class="fw-bold text-primary mb-0">Hora Extra Líquida:</h6>
+                        <h6 class="fw-bold text-primary mb-0">Total Líquido:</h6>
                         <h5 class="fw-bold text-success" id="tHoraExtra">R$ 0,00</h5>
                     </div>
 
@@ -364,11 +367,8 @@
     <script src="https://plentz.github.io/jquery-maskmoney/javascripts/jquery.maskMoney.min.js"
         type="text/javascript"></script>
 
-    <script>
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-
-    </script>
+    <!-- jQuery Mask Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
     <!-- Importando um arquivo JS para dentro do projeto | Ele pode conter funções personalizadas, manipulação de eventos e outras funcionalidades específicas do projeto. -->
     <script src="./assets/js/main.js"></script>
@@ -378,6 +378,9 @@
 
     <!-- Importando um arquivo JS para dentro do projeto | Ele contém a função de calculo CLT x PJ. -->
     <script src="./assets/js/calculoFerias.js"></script>
+
+    <!-- Importando um arquivo JS para dentro do projeto | Ele contém a função de calculo CLT x PJ. -->
+    <script src="./assets/js/calculoHoraExtra.js"></script>
 </body>
 
 </html>
