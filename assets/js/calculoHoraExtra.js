@@ -1,4 +1,26 @@
+function btnCalculadoraHoraExtra() {
+    let cardMenu = document.querySelector(".cardMenu");
+    let cardHoraExtra = document.querySelector(".cardHoraExtra");
+
+    cardMenu.classList.add('ocultar');
+    cardHoraExtra.classList.remove('ocultar');
+}
+
+function refazerCalculoHoraExtra() {
+    let cardResultadoHoraExtra = document.querySelector(".cardResultadoHoraExtra");
+    let cardHoraExtra = document.querySelector(".cardHoraExtra");
+
+    cardResultadoHoraExtra.classList.add('ocultar');
+    cardHoraExtra.classList.remove('ocultar');
+}
+
 function calcularHoraExtra() {
+    let cardResultadoHoraExtra = document.querySelector(".cardResultadoHoraExtra");
+    let cardHoraExtra = document.querySelector(".cardHoraExtra");
+
+    cardResultadoHoraExtra.classList.remove('ocultar');
+    cardHoraExtra.classList.add('ocultar');
+
     let salarioBrutoHoraExtra = formatarValor(document.getElementById("salarioBrutoHoraExtra").value) || 0;
     let horaExtra50 = converterHoraParaDecimal(document.getElementById("horasExtra50").value) || 0;
     let horaExtra100 = converterHoraParaDecimal(document.getElementById("horasExtra100").value) || 0;
