@@ -1,1 +1,1 @@
-https://vercel.com/ricardo-rodrigues0s-projects/calculadoraclt
+https://calculadoraclt.vercel.app/
