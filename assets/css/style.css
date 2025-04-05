@@ -87,6 +87,16 @@ body {
     display: none;
 }
 
+.custom-tooltip {
+    --bs-tooltip-bg: #6f42c1; /* cor de fundo */
+    --bs-tooltip-color: #fff; /* cor do texto */
+    --bs-tooltip-padding-x: 0.75rem;
+    --bs-tooltip-padding-y: 0.5rem;
+    --bs-tooltip-font-size: 0.85rem;
+    --bs-tooltip-border-radius: 0.5rem;
+  }
+  
+
 /* Responsividade: em telas menores, empilhar os elementos */
 @media (max-width: 768px) {
     .container-fluid {
