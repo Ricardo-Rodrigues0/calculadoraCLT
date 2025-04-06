@@ -83,6 +83,7 @@ function calcularFerias() {
     }
 
     document.getElementById("vSalarioBrutoFerias").innerText = `R$ ${salarioBrutoFerias.toFixed(2)}`;
+    document.getElementById("vFerias").innerText = `R$ ${ferias.toFixed(2)}`;
 
     document.getElementById("dINSSFerias").innerHTML = `-R$ ${calcularINSS().toFixed(2)}`;
     document.getElementById("dIRPFFerias").innerHTML = `-R$ ${calcularIRPF().toFixed(2)}`;
