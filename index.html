@@ -443,6 +443,144 @@
             </div>
         </div>
 
+        <!-- X===============================================================================X -->
+        <!--                            Calculadora de Rescisão -->
+        <!-- X===============================================================================X -->
+
+        <div class="col-md-5 d-flex justify-content-center align-items-center">
+            <div class="card cardCLTxPJ">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Calculadora de Rescisão</h5>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label for="salarioBruto" class="form-label">Salário Bruto</label>
+                            <div class="input-group">
+                                <div class="input-group-text">R$</div>
+                                <input type="text" class="form-control" id="salarioBrutoRescisao" placeholder="0,00"
+                                    value="0,00" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label for="dataContratacao" class="form-label">Data da contratação</label>
+                            <div class="input-group">
+                                <div class="input-group-text">🗓️</div>
+                                <input type="date" class="form-control" id="dataContratacao" value="2025-01-01">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label for="dataDemissao" class="form-label">Data da demissão</label>
+                            <div class="input-group">
+                                <div class="input-group-text">🗓️</div>
+                                <input type="date" class="form-control" id="dataDemissao" value="2025-01-01">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label for="avisoPrevio" class="form-label">Aviso prévio</label>
+                            <select class="form-select" id="avisoPrevio">
+                                <option selected value="0" disabled>Selecione uma opção</option>
+                                <option value="1">Trabalhando</option>
+                                <option value="2">Indenizado</option>
+                                <option value="3">Dispensa do Aviso</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label for="motivoSaida" class="form-label">Motivo da saída</label>
+                            <select class="form-select" id="motivoSaida">
+                                <option selected value="0" disabled>Selecione uma opção</option>
+                                <option value="1">Pedido de demissão</option>
+                                <option value="2">Dispensa sem justa causa</option>
+                                <option value="3">Dispensa com justa causa</option>
+                                <option value="4">Término de contrato</option>
+                                <option value="5">Acordo entre as partes</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btnCalculo w-100" onclick="calcularRescisao()">Calcular Rescisão</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container my-4">
+            <div class="card shadow-sm cardResultadoRescisao" style="max-width: 400px; margin: auto;">
+                <div class="card-body p-3">
+                    <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
+
+                    <h6 class="fw-bold text-success">Receitas (+)</h6>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Salário (aviso prévio)</span> <strong id="vSalarioAvisoPrevio">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Décimo Terceiro</span> <strong id="vDecimoTerceiroRescisao">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Férias vencidas</span> <strong id="vFeriasRescisao">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Férias proporcionais</span> <strong id="vFeriasProporcionaisRescisao">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>FGTS</span> <strong id="vFGTSRescisao">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Multa FGTS (40%)</span> <strong id="vFGTSMultaRescisao">R$ 0,00</strong>
+                        </li>
+                    </ul>
+
+                    <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>INSS</span> <strong id="dINSSRescisao">R$ 0,00</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>IRPF</span> <strong id="dIRPFRescisao">R$ 0,00</strong>
+                        </li>
+                    </ul>
+
+                    <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Período trabalhado</span> <strong id="vPeriodoTrabalhado">0</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Férias vencidas</span> <strong id="vFeriasVencida">...</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Aviso prévio</span> <strong id="vAvisoPrevio">...</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Motivo da saída</span> <strong id="vMotivoSaida">...</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Seguro desemprego</span> <strong id="vSeguroDesemprego">...</strong>
+                        </li>
+                    </ul>
+
+                    <div class="mt-3 p-2 text-center bg-light rounded">
+                        <h6 class="fw-bold text-primary mb-0">Valor da Rescisão:</h6>
+                        <h5 class="fw-bold text-success" id="tValorRescisao">R$ 0,00</h5>
+                    </div>
+
+                    <div class="mt-3 p-2 text-center bg-light rounded">
+                        <h6 class="fw-bold text-primary mb-0">Valor da Rescisão (+ Seguro desemprego):</h6>
+                        <h5 class="fw-bold text-success" id="tValorRescisaoSeguroDesemprego">R$ 0,00</h5>
+                    </div>
+
+                    <div class="btn-group mt-4 text-center w-100" role="group">
+                        <a onclick="refazerCalculoRescisao()" class="btn refazerCalculo btnCalculo">Refazer Cálculo</a>
+                        <a href="./index.html" class="btn btnCalculo2">Início</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <footer class="footer text-white py-3 text-center">
             <div class="container">
@@ -482,6 +620,9 @@
 
     <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo de Décimo Terceiro. -->
     <script src="./assets/js/calculoDecimoTerceiro.js"></script>
+
+    <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo de Rescisão. -->
+    <script src="./assets/js/calculoRescisao.js"></script>
 </body>
 
 </html>
