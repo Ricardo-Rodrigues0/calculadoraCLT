@@ -5,583 +5,603 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <!-- Importando os ícones do Bootstrap | Usado para adicionar ícones visuais no projeto -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Importando o framework Bootstrap | Fornece classes prontas para responsividade e componentes visuais -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous">
+
+    <!-- Importando o arquivo CSS do projeto | Contém os estilos personalizados da aplicação -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
+    <!-- Ícone de atalho exibido na aba do navegador -->
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+
+    <!-- Título da aba do navegador -->
     <title>Calculadora CLT</title>
+
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <div class="content d-flex flex-column">
-        <div class="container-fluid d-flex justify-content-center align-items-center flex-grow-1 flex-wrap"
-            style="padding-top: 100px;">
+        <div class="container-fluid d-flex justify-content-center align-items-center flex-grow-1 flex-wrap">
 
-
-            <!-- Lado esquerdo com imagem -->
-            <div class="col-md-5 d-flex justify-content-center align-items-center">
+            <!--      Lado esquerdo: Exibe a imagem animada (GIF) da calculadora      -->
+            <div class="col-12 col-md-5 d-flex justify-content-center align-items-center mb-4 mb-md-0">
                 <img src="./assets/img/Calculator.gif" class="img-fluid" alt="Imagem">
             </div>
 
-            <!-- Lado direito com card e botões -->
-            <div class="col-md-5 d-flex justify-content-center align-items-center">
-                <div class="card cardMenu">
+            <!--      Lado direito: Contém todos os cards (menu, cálculos e resultados)      -->
+            <div class="col-12 col-md-7 position-relative d-flex justify-content-center align-items-center">
+
+                <!-- X===============================================================================X -->
+                <!--                            Menu Principal                                         -->
+                <!-- X===============================================================================X -->
+                <div class="card cardMenu w-100">
                     <div class="card-body text-center">
-                        <a class="navbar-brand mx-auto mb-4 d-flex flex-column align-items-center" href="./index.html">
-                            <img src="./assets/img/logo.png" alt="Logo" width="100" height="90" class="mb-2">
-                            <span>Calculadora CLT</span>
+                        <a class="navbar-brand mx-auto mb-4 d-flex flex-column align-items-center text-decoration-none"
+                            href="./index.html">
+                            <img src="./assets/img/logo.png" alt="Logo da Calculadora CLT" width="100" height="90"
+                                class="mb-2">
+                            <h1 class="h5 fw-bold m-0 text-dark">Calculadora CLT</h1>
                         </a>
-                        <a href="#" onclick="btnCalculadoraCLTxPJ()" class="btn btn-roxo mb-3 mt-4">• Calculadora CTL x
-                            PJ</a>
-                        <a href="#" onclick="btnCalculadoraFerias()" class="btn btn-roxo mb-3">• Calculadora de
-                            Férias</a>
-                        <a href="#" onclick="btnCalculadoraHoraExtra()" class="btn btn-roxo mb-3">• Calculadora de Hora
-                            Extra</a>
-                        <a href="#" onclick="btnCalculadoraDecimoTerceiro()" class="btn btn-roxo mb-3">• Calculadora de
-                            Décimo Terceiro</a>
-                        <a href="#" class="btn btn-roxo mb-3">• Calculadora de Rescisão</a>
+
+
+                        <button onclick="btnCalculadoraCLTxPJ()" class="btn btn-roxo mb-3 mt-2">• Calculadora CLT x
+                            PJ</button>
+                        <button onclick="btnCalculadoraFerias()" class="btn btn-roxo mb-3">• Calculadora de
+                            Férias</button>
+                        <button onclick="btnCalculadoraHoraExtra()" class="btn btn-roxo mb-3">• Calculadora de Hora
+                            Extra</button>
+                        <button onclick="btnCalculadoraDecimoTerceiro()" class="btn btn-roxo mb-3">• Calculadora de
+                            Décimo Terceiro</button>
+                        <button onclick="btnCalculadoraRescisao()" class="btn btn-roxo mb-3" disabled>• Calculadora de
+                            Rescisão</button>
+                    </div>
+                </div>
+
+
+                <!-- X===============================================================================X -->
+                <!--                                                                                   -->
+                <!--                            Calculadora CLT X PJ                                   -->
+                <!--                                                                                   -->
+                <!-- X===============================================================================X -->
+                <div class="card cardCLTxPJ ocultar w-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Calculadora CLT x PJ</h5>
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label for="salarioBruto" class="form-label">Salário Bruto</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">R$</div>
+                                    <input type="text" class="form-control" id="salarioBruto" placeholder="0,00"
+                                        value="0,00" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
+                                <label for="alimentacao" class="form-label">Vale Alimentação</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">R$</div>
+                                    <input type="text" class="form-control" id="alimentacao" placeholder="0,00"
+                                        value="0,00">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
+                                <label for="transporte" class="form-label">Vale Transporte</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">R$</div>
+                                    <input type="text" class="form-control" id="transporte" placeholder="0,00"
+                                        value="0,00">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mb-2">
+                                <label for="beneficios" class="form-label">Outro Benefícios</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">R$</div>
+                                    <input type="text" class="form-control" id="beneficios" placeholder="0,00"
+                                        value="0,00">
+                                </div>
+                            </div>
+
+                            <button class="btn btnCalculo w-100" onclick="calcularCLTxPJ()">Comparar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X===============================================================================X -->
+                <!--                            Resultado CLT X PJ                                     -->
+                <!-- X===============================================================================X -->
+                <div class="card cardResultadoCLT mb-3 mt-3 ocultar" style="max-width: 500px;">
+                    <div class="card-body p-3">
+                        <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
+
+                        <h6 class="fw-bold text-success">Receitas (+)</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Salário Bruto</span> <strong id="vSalarioBruto">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Vale Alimentação</span> <strong id="vValeAlimentacao">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Vale Transporte</span> <strong id="vValeTransporte">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Outros Benefícios</span> <strong id="vBeneficios">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Valor Férias Mensal</span> <strong id="vFeriasMensal">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Valor Décimo Terceiro Mensal</span> <strong id="vDecimoTerceiroMensal">R$
+                                    0,00</strong>
+                            </li>
+                        </ul>
+
+                        <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>INSS</span> <strong id="dINSS">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>IRPF</span> <strong id="dIRPF">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Desc. Vale Transporte</span> <strong id="dValeTransporte">R$ 0,00</strong>
+                            </li>
+                        </ul>
+
+                        <div class="mt-3 p-2 text-center bg-light rounded">
+                            <h6 class="fw-bold text-primary mb-0">Salário Líquido:</h6>
+                            <h5 class="fw-bold text-success" id="tSalarioLiquido">R$ 0,00</h5>
+                        </div>
+
+                        <div class="mt-3 p-2 text-center bg-light rounded">
+                            <h6 class="fw-bold text-primary mb-0">Salário Final (Incluído Férias e 13º):</h6>
+                            <h5 class="fw-bold text-success" id="tSalarioFinal">R$ 0,00</h5>
+                        </div>
+                        <div class="alert alert-success mt-3 text-center p-2 small">
+                            O salário equivalente como PJ seria de <strong id="tSalarioPJ">R$ 0,00</strong>.
+                        </div>
+
+
+
+                        <div class="btn-group mt-4 text-center w-100" role="group">
+                            <a onclick="refazerCalculo()" class="btn refazerCalculo btnCalculo">Refazer Cálculo</a>
+                            <a href="./index.html" class="btn btnCalculo2">Início</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X===============================================================================X -->
+                <!--                                                                                   -->
+                <!--                            Calculadora de Férias                                  -->
+                <!--                                                                                   -->
+                <!-- X===============================================================================X -->
+                <div class="card cardFerias ocultar w-100 position-absolute">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Calculadora de Férias</h5>
+                        <div class="row g-3 mt-3">
+                            <div class="col-md-6">
+                                <label for="salarioBrutoFerias" class="form-label">Salário Bruto</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">R$</div>
+                                    <input type="text" class="form-control" id="salarioBrutoFerias" placeholder="0,00"
+                                        value="0,00" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
+                                <label for="alimentacao" class="form-label">Meses Trabalhado</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">🗓️</div>
+                                    <input type="number" class="form-control" id="mesesTrabalhado" placeholder="0"
+                                        required>
+                                </div>
+                            </div>
+
+                            <button class="btn btnCalculo w-100" onclick="calcularFerias()">Calcular Férias</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X===============================================================================X -->
+                <!--                            Resultado das Férias                                   -->
+                <!-- X===============================================================================X -->
+                <div class="card cardResultadoFerias mb-3 mt-3 ocultar" style="max-width: 500px;">
+                    <div class="card-body p-3">
+                        <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
+
+                        <h6 class="fw-bold text-success">Receitas (+)</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Salário Bruto</span> <strong id="vSalarioBrutoFerias">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Férias</span> <strong id="vFerias">R$ 0,00</strong>
+                            </li>
+                        </ul>
+
+                        <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>INSS</span> <strong id="dINSSFerias">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>IRPF</span> <strong id="dIRPFFerias">R$ 0,00</strong>
+                            </li>
+                        </ul>
+
+                        <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Meses Trabalhados</span> <strong id="vMesesTrabalhados">0</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Status das Férias</span> <strong id="vStatusFerias">Aguardando cálculo...</strong>
+                            </li>
+                        </ul>
+
+                        <div class="mt-3 p-2 text-center bg-light rounded">
+                            <h6 class="fw-bold text-primary mb-0">Férias Líquida:</h6>
+                            <h5 class="fw-bold text-success" id="tFeriasLiquido">R$ 0,00</h5>
+                        </div>
+
+                        <div class="btn-group mt-4 text-center w-100" role="group">
+                            <a onclick="refazerCalculoFerias()" class="btn refazerCalculo btnCalculo">Refazer
+                                Cálculo</a>
+                            <a href="./index.html" class="btn btnCalculo2">Início</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X===============================================================================X -->
+                <!--                                                                                   -->
+                <!--                            Calculadora de Hora Extra                              -->
+                <!--                                                                                   -->
+                <!-- X===============================================================================X -->
+                <div class="card cardHoraExtra ocultar w-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Calculadora de Hora Extra</h5>
+                        <div class="row g-3 mt-3">
+
+                            <div class="col-md-12 mb-2">
+                                <label for="salarioBrutoHoraExtra" class="form-label">Salário Bruto</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">R$</div>
+                                    <input type="text" class="form-control" id="salarioBrutoHoraExtra"
+                                        placeholder="0,00" value="0,00" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
+                                <label for="HorasExtra50" class="form-label">
+                                    Qtd. Horas extras 50%
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Informe quantas horas extras você trabalhou em dias normais (acréscimo de 50%).">
+                                        ❔
+                                    </span>
+                                </label>
+
+                                <div class="input-group">
+                                    <div class="input-group-text">🕑</div>
+                                    <input type="text" class="form-control" id="horasExtra50" placeholder="00:00">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
+                                <label for="HorasExtra50" class="form-label">
+                                    Qtd. Horas extras 100%
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Informe quantas horas extras você trabalhou em feriados ou finais de semana (acréscimo de 100%).">
+                                        ❔
+                                    </span>
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-text">🕑</div>
+                                    <input type="text" class="form-control" id="horasExtra100" placeholder="00:00">
+                                </div>
+                            </div>
+
+                            <button class="btn btnCalculo w-100" onclick="calcularHoraExtra()">Calcular Hora
+                                Extra</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X===============================================================================X -->
+                <!--                            Resultado das Horas Extras                             -->
+                <!-- X===============================================================================X -->
+                <div class="card cardResultadoHoraExtra mb-3 mt-3 ocultar" style="max-width: 500px;">
+                    <div class="card-body p-3">
+                        <h6 class="text-center fw-bold mb-3">Resumo Hora Extra</h6>
+
+                        <h6 class="fw-bold text-success">Receitas (+)</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Salário Bruto</span> <strong id="vSalarioBrutoHoraExtra">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Total de Horas Extras</span> <strong id="vHoraExtra">R$ 0,00</strong>
+                            </li>
+                        </ul>
+
+                        <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>INSS (Previdência Social)</span> <strong id="dINSSHoraExtra">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>IRPF (Imposto de Renda)</span> <strong id="dIRPFHoraExtra">R$ 0,00</strong>
+                            </li>
+                        </ul>
+
+
+                        <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Valor diário (baseado em 30 dias)</span> <strong id="vValorDia">00,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Valor da hora (baseado em 8h/dia)</span> <strong id="vValorHora">00,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Horas extras 50% (dias úteis)</span> <strong
+                                    id="vHorasTrabalhada50">00:00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Horas extras 100% (finais de semana/feriados)</span> <strong
+                                    id="vHorasTrabalhada100">00:00</strong>
+                            </li>
+                        </ul>
+
+                        <div class="mt-3 p-2 text-center bg-light rounded">
+                            <h6 class="fw-bold text-primary mb-0">Total Líquido:</h6>
+                            <h5 class="fw-bold text-success" id="tHoraExtra">R$ 0,00</h5>
+                        </div>
+
+                        <div class="btn-group mt-4 text-center w-100" role="group">
+                            <a onclick="refazerCalculoHoraExtra()" class="btn refazerCalculo btnCalculo">Refazer
+                                Cálculo</a>
+                            <a href="./index.html" class="btn btnCalculo2">Início</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X===============================================================================X -->
+                <!--                                                                                   -->
+                <!--                            Calculadora de Décimo Terceiro                         -->
+                <!--                                                                                   -->
+                <!-- X===============================================================================X -->
+                <div class="card cardDecimoTerceiro ocultar w-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Calculadora de Décimo Terceiro</h5>
+                        <div class="row g-3 mt-3">
+                            <div class="col-md-6">
+                                <label for="salarioBrutoDecimoTerceiro" class="form-label">Salário Bruto</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">R$</div>
+                                    <input type="text" class="form-control" id="salarioBrutoDecimoTerceiro"
+                                        placeholder="0,00" value="0,00" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
+                                <label for="alimentacao" class="form-label">Meses Trabalhado</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">🗓️</div>
+                                    <input type="number" class="form-control" id="mesesTrabalhadoDecimoTerceiro"
+                                        placeholder="0" required>
+                                </div>
+                            </div>
+
+                            <button class="btn btnCalculo w-100" onclick="calcularDecimoTerceiro()">Calcular Décimo
+                                Terceiro</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X===============================================================================X -->
+                <!--                            Resultado do Décimo Terceiro                           -->
+                <!-- X===============================================================================X -->
+                <div class="card cardResultadoDecimoTerceiro mb-3 mt-3 ocultar" style="max-width: 500px;">
+                    <div class="card-body p-3">
+                        <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
+
+                        <h6 class="fw-bold text-success">Receitas (+)</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Salário Bruto</span> <strong id="vSalarioBrutoDecimoTerceiro">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Décimo Terceiro</span> <strong id="vDecimoTerceiro">R$ 0,00</strong>
+                            </li>
+                        </ul>
+
+                        <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>INSS</span> <strong id="dINSSDecimoTerceiro">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>IRPF</span> <strong id="dIRPFDecimoTerceiro">R$ 0,00</strong>
+                            </li>
+                        </ul>
+
+                        <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Meses Trabalhados</span> <strong id="vmesesTrabalhadoDecimoTerceiro">0</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Primeira parcela (30 de novembro)</span> <strong id="vPrimeiraParcela">R$
+                                    0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Segunda parcela (20 de dezembro)</span> <strong id="vSegundaParcela">R$
+                                    0,00</strong>
+                            </li>
+                        </ul>
+
+                        <div class="mt-3 p-2 text-center bg-light rounded">
+                            <h6 class="fw-bold text-primary mb-0">Décimo Terceiro Líquido:</h6>
+                            <h5 class="fw-bold text-success" id="tDecimoTerceiroLiquido">R$ 0,00</h5>
+                        </div>
+
+                        <div class="btn-group mt-4 text-center w-100" role="group">
+                            <a onclick="refazerCalculoDecimoTerceiro()" class="btn refazerCalculo btnCalculo">Refazer
+                                Cálculo</a>
+                            <a href="./index.html" class="btn btnCalculo2">Início</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X===============================================================================X -->
+                <!--                                                                                   -->
+                <!--                            Calculadora de Rescisão                                -->
+                <!--                                                                                   -->
+                <!-- X===============================================================================X -->
+                <div class="card cardRescisao ocultar w-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Calculadora de Rescisão</h5>
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label for="salarioBruto" class="form-label">Salário Bruto</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">R$</div>
+                                    <input type="text" class="form-control" id="salarioBrutoRescisao" placeholder="0,00"
+                                        value="0,00" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
+                                <label for="dataContratacao" class="form-label">Data da contratação</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">🗓️</div>
+                                    <input type="date" class="form-control" id="dataContratacao" value="2025-01-01">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
+                                <label for="dataDemissao" class="form-label">Data da demissão</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">🗓️</div>
+                                    <input type="date" class="form-control" id="dataDemissao" value="2025-01-01">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
+                                <label for="avisoPrevio" class="form-label">Aviso prévio</label>
+                                <select class="form-select" id="avisoPrevio">
+                                    <option selected value="0" disabled>Selecione uma opção</option>
+                                    <option value="1">Trabalhando</option>
+                                    <option value="2">Indenizado</option>
+                                    <option value="3">Dispensa do Aviso</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
+                                <label for="motivoSaida" class="form-label">Motivo da saída</label>
+                                <select class="form-select" id="motivoSaida">
+                                    <option selected value="0" disabled>Selecione uma opção</option>
+                                    <option value="1">Pedido de demissão</option>
+                                    <option value="2">Dispensa sem justa causa</option>
+                                    <option value="3">Dispensa com justa causa</option>
+                                    <option value="4">Término de contrato</option>
+                                    <option value="5">Acordo entre as partes</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btnCalculo w-100" onclick="calcularRescisao()">Calcular Rescisão</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X===============================================================================X -->
+                <!--                            Resultado da Rescisão                                  -->
+                <!-- X===============================================================================X -->
+                <div class="card cardResultadoRescisao mb-3 mt-3 ocultar" style="max-width: 500px;">
+                    <div class="card-body p-3">
+                        <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
+
+                        <h6 class="fw-bold text-success">Receitas (+)</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Salário (aviso prévio)</span> <strong id="vSalarioAvisoPrevio">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Décimo Terceiro</span> <strong id="vDecimoTerceiroRescisao">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Férias vencidas</span> <strong id="vFeriasRescisao">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Férias proporcionais</span> <strong id="vFeriasProporcionaisRescisao">R$
+                                    0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>FGTS</span> <strong id="vFGTSRescisao">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Multa FGTS (40%)</span> <strong id="vFGTSMultaRescisao">R$ 0,00</strong>
+                            </li>
+                        </ul>
+
+                        <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>INSS</span> <strong id="dINSSRescisao">R$ 0,00</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>IRPF</span> <strong id="dIRPFRescisao">R$ 0,00</strong>
+                            </li>
+                        </ul>
+
+                        <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Período trabalhado</span> <strong id="vPeriodoTrabalhado">0</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Férias vencidas</span> <strong id="vFeriasVencida">...</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Aviso prévio</span> <strong id="vAvisoPrevio">...</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Motivo da saída</span> <strong id="vMotivoSaida">...</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Seguro desemprego</span> <strong id="vSeguroDesemprego">...</strong>
+                            </li>
+                        </ul>
+
+                        <div class="mt-3 p-2 text-center bg-light rounded">
+                            <h6 class="fw-bold text-primary mb-0">Valor da Rescisão:</h6>
+                            <h5 class="fw-bold text-success" id="tValorRescisao">R$ 0,00</h5>
+                        </div>
+
+                        <div class="mt-3 p-2 text-center bg-light rounded">
+                            <h6 class="fw-bold text-primary mb-0">Valor da Rescisão (+ Seguro desemprego):</h6>
+                            <h5 class="fw-bold text-success" id="tValorRescisaoSeguroDesemprego">R$ 0,00</h5>
+                        </div>
+
+                        <div class="btn-group mt-4 text-center w-100" role="group">
+                            <a onclick="refazerCalculoRescisao()" class="btn refazerCalculo btnCalculo">Refazer
+                                Cálculo</a>
+                            <a href="./index.html" class="btn btnCalculo2">Início</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <!-- X===============================================================================X -->
-        <!--                            Calculadora CLT x PJ -->
-        <!-- X===============================================================================X -->
-
-        <div class="col-md-5 d-flex justify-content-center align-items-center">
-            <div class="card cardCLTxPJ ocultar">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Calculadora CLT x PJ</h5>
-                    <div class="row g-3">
-                        <div class="col-md-12">
-                            <label for="salarioBruto" class="form-label">Salário Bruto</label>
-                            <div class="input-group">
-                                <div class="input-group-text">R$</div>
-                                <input type="text" class="form-control" id="salarioBruto" placeholder="0,00"
-                                    value="0,00" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="alimentacao" class="form-label">Vale Alimentação</label>
-                            <div class="input-group">
-                                <div class="input-group-text">R$</div>
-                                <input type="text" class="form-control" id="alimentacao" placeholder="0,00"
-                                    value="0,00">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="transporte" class="form-label">Vale Transporte</label>
-                            <div class="input-group">
-                                <div class="input-group-text">R$</div>
-                                <input type="text" class="form-control" id="transporte" placeholder="0,00" value="0,00">
-                            </div>
-                        </div>
-
-                        <div class="col-md-12 mb-2">
-                            <label for="beneficios" class="form-label">Outro Benefícios</label>
-                            <div class="input-group">
-                                <div class="input-group-text">R$</div>
-                                <input type="text" class="form-control" id="beneficios" placeholder="0,00" value="0,00">
-                            </div>
-                        </div>
-
-                        <button class="btn btnCalculo w-100" onclick="calcularCLTxPJ()">Comparar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container my-4">
-            <div class="card shadow-sm cardResultadoCLT ocultar" style="max-width: 400px; margin: auto;">
-                <div class="card-body p-3">
-                    <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
-
-                    <h6 class="fw-bold text-success">Receitas (+)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Salário Bruto</span> <strong id="vSalarioBruto">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Vale Alimentação</span> <strong id="vValeAlimentacao">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Vale Transporte</span> <strong id="vValeTransporte">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Outros Benefícios</span> <strong id="vBeneficios">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Valor Férias Mensal</span> <strong id="vFeriasMensal">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Valor Décimo Terceiro Mensal</span> <strong id="vDecimoTerceiroMensal">R$
-                                0,00</strong>
-                        </li>
-                    </ul>
-
-                    <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>INSS</span> <strong id="dINSS">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>IRPF</span> <strong id="dIRPF">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Desc. Vale Transporte</span> <strong id="dValeTransporte">R$ 0,00</strong>
-                        </li>
-                    </ul>
-
-                    <div class="mt-3 p-2 text-center bg-light rounded">
-                        <h6 class="fw-bold text-primary mb-0">Salário Líquido:</h6>
-                        <h5 class="fw-bold text-success" id="tSalarioLiquido">R$ 0,00</h5>
-                    </div>
-
-                    <div class="mt-3 p-2 text-center bg-light rounded">
-                        <h6 class="fw-bold text-primary mb-0">Salário Final (Incluído Férias e 13º):</h6>
-                        <h5 class="fw-bold text-success" id="tSalarioFinal">R$ 0,00</h5>
-                    </div>
-                    <div class="alert alert-success mt-3 text-center p-2 small">
-                        O salário equivalente como PJ seria de <strong id="tSalarioPJ">R$ 0,00</strong>.
-                    </div>
-
-
-
-                    <div class="btn-group mt-4 text-center w-100" role="group">
-                        <a onclick="refazerCalculo()" class="btn refazerCalculo btnCalculo">Refazer Cálculo</a>
-                        <a href="./index.html" class="btn btnCalculo2">Início</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- X===============================================================================X -->
-        <!--                            Calculadora de Férias -->
-        <!-- X===============================================================================X -->
-
-        <div class="col-md-5 d-flex justify-content-center align-items-center">
-            <div class="card cardFerias ocultar">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Calculadora de Férias</h5>
-                    <div class="row g-3 mt-3">
-                        <div class="col-md-6">
-                            <label for="salarioBrutoFerias" class="form-label">Salário Bruto</label>
-                            <div class="input-group">
-                                <div class="input-group-text">R$</div>
-                                <input type="text" class="form-control" id="salarioBrutoFerias" placeholder="0,00"
-                                    value="0,00" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="alimentacao" class="form-label">Meses Trabalhado</label>
-                            <div class="input-group">
-                                <div class="input-group-text">🗓️</div>
-                                <input type="number" class="form-control" id="mesesTrabalhado" placeholder="0" required>
-                            </div>
-                        </div>
-
-                        <button class="btn btnCalculo w-100" onclick="calcularFerias()">Calcular Férias</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container my-4">
-            <div class="card shadow-sm cardResultadoFerias ocultar" style="max-width: 400px; margin: auto;">
-                <div class="card-body p-3">
-                    <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
-
-                    <h6 class="fw-bold text-success">Receitas (+)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Salário Bruto</span> <strong id="vSalarioBrutoFerias">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Férias</span> <strong id="vFerias">R$ 0,00</strong>
-                        </li>
-                    </ul>
-
-                    <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>INSS</span> <strong id="dINSSFerias">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>IRPF</span> <strong id="dIRPFFerias">R$ 0,00</strong>
-                        </li>
-                    </ul>
-
-                    <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Meses Trabalhados</span> <strong id="vMesesTrabalhados">0</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Status das Férias</span> <strong id="vStatusFerias">Aguardando cálculo...</strong>
-                        </li>
-                    </ul>
-
-                    <div class="mt-3 p-2 text-center bg-light rounded">
-                        <h6 class="fw-bold text-primary mb-0">Férias Líquida:</h6>
-                        <h5 class="fw-bold text-success" id="tFeriasLiquido">R$ 0,00</h5>
-                    </div>
-
-                    <div class="btn-group mt-4 text-center w-100" role="group">
-                        <a onclick="refazerCalculoFerias()" class="btn refazerCalculo btnCalculo">Refazer Cálculo</a>
-                        <a href="./index.html" class="btn btnCalculo2">Início</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- X===============================================================================X -->
-        <!--                            Calculadora de Hora Extra -->
-        <!-- X===============================================================================X -->
-
-        <div class="col-md-5 d-flex justify-content-center align-items-center">
-            <div class="card cardHoraExtra ocultar">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Calculadora de Hora Extra</h5>
-                    <div class="row g-3 mt-3">
-
-                        <div class="col-md-12 mb-2">
-                            <label for="salarioBrutoHoraExtra" class="form-label">Salário Bruto</label>
-                            <div class="input-group">
-                                <div class="input-group-text">R$</div>
-                                <input type="text" class="form-control" id="salarioBrutoHoraExtra" placeholder="0,00"
-                                    value="0,00" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="HorasExtra50" class="form-label">
-                                Qtd. Horas extras 50%
-                                <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Informe quantas horas extras você trabalhou em dias normais (acréscimo de 50%).">
-                                    ❔
-                                </span>
-                            </label>
-
-                            <div class="input-group">
-                                <div class="input-group-text">🕑</div>
-                                <input type="text" class="form-control" id="horasExtra50" placeholder="00:00">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="HorasExtra50" class="form-label">
-                                Qtd. Horas extras 100%
-                                <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Informe quantas horas extras você trabalhou em feriados ou finais de semana (acréscimo de 100%).">
-                                    ❔
-                                </span>
-                            </label>
-                            <div class="input-group">
-                                <div class="input-group-text">🕑</div>
-                                <input type="text" class="form-control" id="horasExtra100" placeholder="00:00">
-                            </div>
-                        </div>
-
-                        <button class="btn btnCalculo w-100" onclick="calcularHoraExtra()">Calcular Hora Extra</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container my-4">
-            <div class="card shadow-sm cardResultadoHoraExtra ocultar" style="max-width: 400px; margin: auto;">
-                <div class="card-body p-3">
-                    <h6 class="text-center fw-bold mb-3">Resumo Hora Extra</h6>
-
-                    <h6 class="fw-bold text-success">Receitas (+)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Salário Bruto</span> <strong id="vSalarioBrutoHoraExtra">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Total de Horas Extras</span> <strong id="vHoraExtra">R$ 0,00</strong>
-                        </li>
-                    </ul>
-
-                    <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>INSS (Previdência Social)</span> <strong id="dINSSHoraExtra">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>IRPF (Imposto de Renda)</span> <strong id="dIRPFHoraExtra">R$ 0,00</strong>
-                        </li>
-                    </ul>
-
-
-                    <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Valor diário (baseado em 30 dias)</span> <strong id="vValorDia">00,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Valor da hora (baseado em 8h/dia)</span> <strong id="vValorHora">00,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Horas extras 50% (dias úteis)</span> <strong id="vHorasTrabalhada50">00:00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Horas extras 100% (finais de semana/feriados)</span> <strong
-                                id="vHorasTrabalhada100">00:00</strong>
-                        </li>
-                    </ul>
-
-                    <div class="mt-3 p-2 text-center bg-light rounded">
-                        <h6 class="fw-bold text-primary mb-0">Total Líquido:</h6>
-                        <h5 class="fw-bold text-success" id="tHoraExtra">R$ 0,00</h5>
-                    </div>
-
-                    <div class="btn-group mt-4 text-center w-100" role="group">
-                        <a onclick="refazerCalculoHoraExtra()" class="btn refazerCalculo btnCalculo">Refazer Cálculo</a>
-                        <a href="./index.html" class="btn btnCalculo2">Início</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- X===============================================================================X -->
-        <!--                            Calculadora de Décimo Terceiro -->
-        <!-- X===============================================================================X -->
-
-        <div class="col-md-5 d-flex justify-content-center align-items-center">
-            <div class="card cardDecimoTerceiro ocultar">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Calculadora de Décimo Terceiro</h5>
-                    <div class="row g-3 mt-3">
-                        <div class="col-md-6">
-                            <label for="salarioBrutoDecimoTerceiro" class="form-label">Salário Bruto</label>
-                            <div class="input-group">
-                                <div class="input-group-text">R$</div>
-                                <input type="text" class="form-control" id="salarioBrutoDecimoTerceiro"
-                                    placeholder="0,00" value="0,00" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="alimentacao" class="form-label">Meses Trabalhado</label>
-                            <div class="input-group">
-                                <div class="input-group-text">🗓️</div>
-                                <input type="number" class="form-control" id="mesesTrabalhadoDecimoTerceiro"
-                                    placeholder="0" required>
-                            </div>
-                        </div>
-
-                        <button class="btn btnCalculo w-100" onclick="calcularDecimoTerceiro()">Calcular Décimo
-                            Terceiro</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container my-4">
-            <div class="card shadow-sm cardResultadoDecimoTerceiro ocultar" style="max-width: 400px; margin: auto;">
-                <div class="card-body p-3">
-                    <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
-
-                    <h6 class="fw-bold text-success">Receitas (+)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Salário Bruto</span> <strong id="vSalarioBrutoDecimoTerceiro">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Décimo Terceiro</span> <strong id="vDecimoTerceiro">R$ 0,00</strong>
-                        </li>
-                    </ul>
-
-                    <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>INSS</span> <strong id="dINSSDecimoTerceiro">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>IRPF</span> <strong id="dIRPFDecimoTerceiro">R$ 0,00</strong>
-                        </li>
-                    </ul>
-
-                    <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Meses Trabalhados</span> <strong id="vmesesTrabalhadoDecimoTerceiro">0</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Primeira parcela (30 de novembro)</span> <strong id="vPrimeiraParcela">R$
-                                0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Segunda parcela (20 de dezembro)</span> <strong id="vSegundaParcela">R$ 0,00</strong>
-                        </li>
-                    </ul>
-
-                    <div class="mt-3 p-2 text-center bg-light rounded">
-                        <h6 class="fw-bold text-primary mb-0">Décimo Terceiro Líquido:</h6>
-                        <h5 class="fw-bold text-success" id="tDecimoTerceiroLiquido">R$ 0,00</h5>
-                    </div>
-
-                    <div class="btn-group mt-4 text-center w-100" role="group">
-                        <a onclick="refazerCalculoDecimoTerceiro()" class="btn refazerCalculo btnCalculo">Refazer
-                            Cálculo</a>
-                        <a href="./index.html" class="btn btnCalculo2">Início</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- X===============================================================================X -->
-        <!--                            Calculadora de Rescisão -->
-        <!-- X===============================================================================X -->
-
-        <div class="col-md-5 d-flex justify-content-center align-items-center">
-            <div class="card cardRescisao ocultar">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Calculadora de Rescisão</h5>
-                    <div class="row g-3">
-                        <div class="col-md-12">
-                            <label for="salarioBruto" class="form-label">Salário Bruto</label>
-                            <div class="input-group">
-                                <div class="input-group-text">R$</div>
-                                <input type="text" class="form-control" id="salarioBrutoRescisao" placeholder="0,00"
-                                    value="0,00" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="dataContratacao" class="form-label">Data da contratação</label>
-                            <div class="input-group">
-                                <div class="input-group-text">🗓️</div>
-                                <input type="date" class="form-control" id="dataContratacao" value="2025-01-01">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="dataDemissao" class="form-label">Data da demissão</label>
-                            <div class="input-group">
-                                <div class="input-group-text">🗓️</div>
-                                <input type="date" class="form-control" id="dataDemissao" value="2025-01-01">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="avisoPrevio" class="form-label">Aviso prévio</label>
-                            <select class="form-select" id="avisoPrevio">
-                                <option selected value="0" disabled>Selecione uma opção</option>
-                                <option value="1">Trabalhando</option>
-                                <option value="2">Indenizado</option>
-                                <option value="3">Dispensa do Aviso</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label for="motivoSaida" class="form-label">Motivo da saída</label>
-                            <select class="form-select" id="motivoSaida">
-                                <option selected value="0" disabled>Selecione uma opção</option>
-                                <option value="1">Pedido de demissão</option>
-                                <option value="2">Dispensa sem justa causa</option>
-                                <option value="3">Dispensa com justa causa</option>
-                                <option value="4">Término de contrato</option>
-                                <option value="5">Acordo entre as partes</option>
-                            </select>
-                        </div>
-
-                        <button class="btn btnCalculo w-100" onclick="calcularRescisao()">Calcular Rescisão</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container my-4">
-            <div class="card shadow-sm cardResultadoRescisao ocultar" style="max-width: 400px; margin: auto;">
-                <div class="card-body p-3">
-                    <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
-
-                    <h6 class="fw-bold text-success">Receitas (+)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Salário (aviso prévio)</span> <strong id="vSalarioAvisoPrevio">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Décimo Terceiro</span> <strong id="vDecimoTerceiroRescisao">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Férias vencidas</span> <strong id="vFeriasRescisao">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Férias proporcionais</span> <strong id="vFeriasProporcionaisRescisao">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>FGTS</span> <strong id="vFGTSRescisao">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Multa FGTS (40%)</span> <strong id="vFGTSMultaRescisao">R$ 0,00</strong>
-                        </li>
-                    </ul>
-
-                    <h6 class="fw-bold text-danger mt-3">Descontos (-)</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>INSS</span> <strong id="dINSSRescisao">R$ 0,00</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>IRPF</span> <strong id="dIRPFRescisao">R$ 0,00</strong>
-                        </li>
-                    </ul>
-
-                    <h6 class="fw-bold text-primary mt-3">Informações do Trabalho</h6>
-                    <ul class="list-group list-group-flush small">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Período trabalhado</span> <strong id="vPeriodoTrabalhado">0</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Férias vencidas</span> <strong id="vFeriasVencida">...</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Aviso prévio</span> <strong id="vAvisoPrevio">...</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Motivo da saída</span> <strong id="vMotivoSaida">...</strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Seguro desemprego</span> <strong id="vSeguroDesemprego">...</strong>
-                        </li>
-                    </ul>
-
-                    <div class="mt-3 p-2 text-center bg-light rounded">
-                        <h6 class="fw-bold text-primary mb-0">Valor da Rescisão:</h6>
-                        <h5 class="fw-bold text-success" id="tValorRescisao">R$ 0,00</h5>
-                    </div>
-
-                    <div class="mt-3 p-2 text-center bg-light rounded">
-                        <h6 class="fw-bold text-primary mb-0">Valor da Rescisão (+ Seguro desemprego):</h6>
-                        <h5 class="fw-bold text-success" id="tValorRescisaoSeguroDesemprego">R$ 0,00</h5>
-                    </div>
-
-                    <div class="btn-group mt-4 text-center w-100" role="group">
-                        <a onclick="refazerCalculoRescisao()" class="btn refazerCalculo btnCalculo">Refazer Cálculo</a>
-                        <a href="./index.html" class="btn btnCalculo2">Início</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
+        <!--      Footer (rodapé) da página      -->
         <footer class="footer text-white py-3 text-center">
             <div class="container">
                 <p class="mb-0">
@@ -593,36 +613,34 @@
                 </p>
             </div>
         </footer>
-    </div>
 
+        <!-- Importando a biblioteca JQuery | Essa biblioteca fornece funcionalidades úteis para manipulação do DOM, eventos, animações, requisições AJAX, entre outras. -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-    <!-- Importando a biblioteca JQuery | Essa biblioteca fornece funcionalidades úteis para manipulação do DOM, eventos, animações, requisições AJAX, entre outras. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Importando uma biblioteca jquery.maskMoney | Essa biblioteca é usada para formatar valores monetários de forma consistente em uma aplicação. -->
+        <script src="https://plentz.github.io/jquery-maskmoney/javascripts/jquery.maskMoney.min.js"
+            type="text/javascript"></script>
 
-    <!-- Importando uma biblioteca jquery.maskMoney | Essa biblioteca é usada para formatar valores monetários de forma consistente em uma aplicação. -->
-    <script src="https://plentz.github.io/jquery-maskmoney/javascripts/jquery.maskMoney.min.js"
-        type="text/javascript"></script>
+        <!-- jQuery Mask Plugin -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
-    <!-- jQuery Mask Plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+        <!-- Importando um arquivo JS para dentro do projeto | Nele pode conter funções personalizadas, manipulação de eventos e outras funcionalidades específicas do projeto. -->
+        <script src="./assets/js/main.js"></script>
 
-    <!-- Importando um arquivo JS para dentro do projeto | Nele pode conter funções personalizadas, manipulação de eventos e outras funcionalidades específicas do projeto. -->
-    <script src="./assets/js/main.js"></script>
+        <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo CLT x PJ. -->
+        <script src="./assets/js/calculoCLTxPJ.js"></script>
 
-    <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo CLT x PJ. -->
-    <script src="./assets/js/calculoCLTxPJ.js"></script>
+        <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo de Férias. -->
+        <script src="./assets/js/calculoFerias.js"></script>
 
-    <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo de Férias. -->
-    <script src="./assets/js/calculoFerias.js"></script>
+        <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo de Hora Extra. -->
+        <script src="./assets/js/calculoHoraExtra.js"></script>
 
-    <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo de Hora Extra. -->
-    <script src="./assets/js/calculoHoraExtra.js"></script>
+        <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo de Décimo Terceiro. -->
+        <script src="./assets/js/calculoDecimoTerceiro.js"></script>
 
-    <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo de Décimo Terceiro. -->
-    <script src="./assets/js/calculoDecimoTerceiro.js"></script>
-
-    <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo de Rescisão. -->
-    <script src="./assets/js/calculoRescisao.js"></script>
+        <!-- Importando um arquivo JS para dentro do projeto | Nele contém a função de calculo de Rescisão. -->
+        <script src="./assets/js/calculoRescisao.js"></script>
 </body>
 
 </html>

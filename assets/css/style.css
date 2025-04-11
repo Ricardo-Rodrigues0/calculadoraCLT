@@ -1,4 +1,4 @@
-/* Garante que o conteúdo ocupe toda a tela */
+/* === Base === */
 html,
 body {
     height: 100%;
@@ -7,14 +7,37 @@ body {
     background: rgb(233, 233, 233);
 }
 
-/* Estrutura com flexbox */
+/* === Scroll personalizado === */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6f42c1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #512a97;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #6f42c1 #f1f1f1;
+}
+
+/* === Layout principal === */
 .content {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Ajuste para centralizar conteúdo corretamente */
 .main-content {
     flex: 1;
     display: flex;
@@ -22,7 +45,7 @@ body {
     justify-content: center;
 }
 
-/* Footer fixo no final */
+/* === Rodapé === */
 .footer {
     background-color: #6f42c1;
     color: white;
@@ -30,7 +53,7 @@ body {
     padding: 20px;
 }
 
-/* Estilização dos botões */
+/* === Botões === */
 .btn-roxo {
     background-color: #6f42c1;
     color: white;
@@ -48,6 +71,11 @@ body {
     color: white;
 }
 
+.btnCalculo:hover {
+    background-color: #5a30b0;
+    color: rgb(238, 214, 255);
+}
+
 .btnCalculo2 {
     background-color: #6431c4;
     color: white;
@@ -58,12 +86,7 @@ body {
     color: rgb(238, 214, 255);
 }
 
-.btnCalculo:hover {
-    background-color: #5a30b0;
-    color: rgb(238, 214, 255);
-}
-
-/* Estilização do card */
+/* === Cartões === */
 .card {
     background: rgb(233, 233, 233);
     border-color: #6f42c1;
@@ -73,6 +96,7 @@ body {
     max-width: 30rem;
 }
 
+/* === Formulários === */
 .form-control {
     border-color: #dcc8ff;
     color: #7e5eb6;
@@ -83,21 +107,12 @@ body {
     border-color: #dcc8ff;
 }
 
+/* === Classes utilitárias === */
 .ocultar {
     display: none;
 }
 
-.custom-tooltip {
-    --bs-tooltip-bg: #6f42c1; /* cor de fundo */
-    --bs-tooltip-color: #fff; /* cor do texto */
-    --bs-tooltip-padding-x: 0.75rem;
-    --bs-tooltip-padding-y: 0.5rem;
-    --bs-tooltip-font-size: 0.85rem;
-    --bs-tooltip-border-radius: 0.5rem;
-  }
-  
-
-/* Responsividade: em telas menores, empilhar os elementos */
+/* === Responsivo === */
 @media (max-width: 768px) {
     .container-fluid {
         flex-direction: column;
