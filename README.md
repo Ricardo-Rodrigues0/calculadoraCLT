@@ -9,7 +9,7 @@ A **Calculadora CLT** foi desenvolvida com o objetivo de facilitar a vida do tra
 
 Projetada com foco em usabilidade e clareza, a aplicação proporciona uma experiência fluida, com feedback visual e resultados detalhados para cada tipo de simulação.
 
-🔗 <a href="https://calculadoraclt.vercel.app/" target="_blank">Clique aqui para acessar a Calculadora CLT</a>
+🔗 <a href="https://calculadoraclt.vercel.app/" target="_blank" rel="noopener noreferrer">Clique aqui para acessar a Calculadora CLT</a>
 
 ---
 
@@ -45,11 +45,12 @@ Todos os resultados são exibidos separando **receitas**, **descontos** e o **to
   <li>HTML5</li>
   <li>CSS3</li>
   <li>JavaScript (puro)</li>
-  <li><a href="https://getbootstrap.com" target="_blank">Bootstrap 5</a></li>
-  <li><a href="https://jquery.com" target="_blank">jQuery</a></li>
-  <li><a href="https://igorescobar.github.io/jQuery-Mask-Plugin/" target="_blank">jQuery Mask & MaskMoney</a></li>
-  <li><a href="https://icons.getbootstrap.com" target="_blank">Bootstrap Icons</a></li>
+  <li><a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer">Bootstrap 5</a></li>
+  <li><a href="https://jquery.com" target="_blank" rel="noopener noreferrer">jQuery</a></li>
+  <li><a href="https://igorescobar.github.io/jQuery-Mask-Plugin/" target="_blank" rel="noopener noreferrer">jQuery Mask & MaskMoney</a></li>
+  <li><a href="https://icons.getbootstrap.com" target="_blank" rel="noopener noreferrer">Bootstrap Icons</a></li>
 </ul>
+
 
 ---
 
@@ -101,5 +102,6 @@ Você pode usá-lo, modificá-lo e distribuí-lo conforme desejar.
 ---
 
 Desenvolvido com 💜 por **Ricardo Rodrigues**  
-<a href="https://www.linkedin.com/in/ricardo-rodrigues0/" target="_blank">LinkedIn</a>
+<a href="https://www.linkedin.com/in/ricardo-rodrigues0/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+
 
