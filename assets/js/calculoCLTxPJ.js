@@ -1,3 +1,4 @@
+// Exibe o card de comparação CLT x PJ e oculta o menu
 function btnCalculadoraCLTxPJ() {
     let cardMenu = document.querySelector(".cardMenu");
     let cardCLTxPJ = document.querySelector(".cardCLTxPJ");
@@ -6,6 +7,7 @@ function btnCalculadoraCLTxPJ() {
     cardCLTxPJ.classList.remove('ocultar');
 }
 
+// Volta para o card de cálculo, ocultando o resultado
 function refazerCalculo() {
     let cardResultadoCLT = document.querySelector(".cardResultadoCLT");
     let cardCLTxPJ = document.querySelector(".cardCLTxPJ");
@@ -14,6 +16,7 @@ function refazerCalculo() {
     cardCLTxPJ.classList.remove('ocultar');
 }
 
+// Realiza o cálculo de comparação entre CLT e PJ
 function calcularCLTxPJ() {
     let cardResultadoCLT = document.querySelector(".cardResultadoCLT");
     let cardCLTxPJ = document.querySelector(".cardCLTxPJ");
@@ -21,20 +24,27 @@ function calcularCLTxPJ() {
     cardResultadoCLT.classList.remove('ocultar');
     cardCLTxPJ.classList.add('ocultar');
 
+    // Pega os valores inseridos nos inputs e formata
     let salarioBruto = formatarValor(document.getElementById("salarioBruto").value) || 0;
     let valeAlimentacao = formatarValor(document.getElementById("alimentacao").value) || 0;
     let valeTransporte = formatarValor(document.getElementById("transporte").value) || 0;
     let beneficios = formatarValor(document.getElementById("beneficios").value) || 0;
 
+    // Cálculo proporcional de férias e 13º salário
     let feriasMensal = (salarioBruto / 12) * 1.3333;
     let decimoTerceiroMensal = salarioBruto / 12;
 
+    // Cálculo do salário final (com benefícios e adicionais)
     let salarioFinal = (salarioBruto + valeAlimentacao + valeTransporte + beneficios + feriasMensal + decimoTerceiroMensal) - calcularINSS() - calcularIRPF();
+
+    // Cálculo do salário líquido (sem férias/13º)
     let salarioLiquido = (salarioBruto + valeAlimentacao + valeTransporte + beneficios) - calcularINSS() - calcularIRPF();
 
+    // Simula salário PJ com base em uma alíquota de 15%
     aliquotaPJ = 0.15;
     let salarioPJ = aliquotaPJ > 0 ? (salarioFinal / (1 - aliquotaPJ)) : salarioFinal;
 
+    // Cálculo do INSS baseado na faixa salarial
     function calcularINSS() {
         let inss = 0;
 
@@ -53,6 +63,7 @@ function calcularCLTxPJ() {
         return inss;
     }
 
+    // Cálculo do IRPF com base na base de cálculo após desconto do INSS
     function calcularIRPF() {
         let inss = calcularINSS();
         let baseIRPF = salarioBruto - inss;
@@ -73,6 +84,7 @@ function calcularCLTxPJ() {
         return irpf;
     }
 
+    // Atualiza os elementos da interface com os valores calculados
     document.getElementById("vSalarioBruto").innerText = `R$ ${salarioBruto.toFixed(2)}`;
     document.getElementById("vValeAlimentacao").innerText = `R$ ${valeAlimentacao.toFixed(2)}`;
     document.getElementById("vValeTransporte").innerText = `R$ ${valeTransporte.toFixed(2)}`;
@@ -88,4 +100,27 @@ function calcularCLTxPJ() {
     document.getElementById("tSalarioLiquido").innerHTML = `R$ ${salarioLiquido.toFixed(2)}`;
 
     document.getElementById("tSalarioPJ").innerHTML = `R$ ${salarioPJ.toFixed(2)}`;
-};
+}
+
+/*
+------------------------------------------------------
+| Comentário sobre o cálculo                        |
+------------------------------------------------------
+O cálculo compara os ganhos de um trabalhador CLT e um PJ.
+
+Passos:
+- O valor do salário bruto é somado com os benefícios (vale alimentação, vale transporte e outros).
+- São calculados os adicionais de férias proporcionais e 13º salário mensal.
+- O total de ganhos é ajustado com a subtração dos descontos de INSS e IRPF.
+- Para o PJ, um salário bruto equivalente é calculado, considerando uma alíquota de 15% sobre o total de ganhos CLT.
+- O cálculo do INSS e IRPF leva em conta as faixas salariais e descontos correspondentes.
+
+O resultado final exibe:
+- Salário bruto
+- Benefícios
+- Férias e 13º proporcionais
+- Descontos de INSS e IRPF
+- Salário líquido (CLT)
+- Salário PJ ajustado (com base na alíquota de 15%)
+*/
+
