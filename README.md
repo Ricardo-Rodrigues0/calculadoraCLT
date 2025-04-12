@@ -94,5 +94,19 @@ Seu feedback é muito bem-vindo! 🙌
 
 ---
 
+<<<<<<< HEAD
 Desenvolvido com 💜 por **Ricardo Rodrigues**  
 <a href="https://www.linkedin.com/in/ricardo-rodrigues0/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+=======
+## 📄 Licença
+
+Este projeto está licenciado sob a licença **MIT**.  
+Você pode usá-lo, modificá-lo e distribuí-lo conforme desejar.
+
+---
+
+Desenvolvido com 💜 por **Ricardo Rodrigues**  
+<a href="https://www.linkedin.com/in/ricardo-rodrigues0/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+
+
+>>>>>>> 1e9e02b6ef18a09c34ffe359c05dd57fb5827566
