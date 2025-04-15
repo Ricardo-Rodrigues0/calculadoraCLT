@@ -30,12 +30,54 @@ function calcularHoraExtra() {
     let horaExtra100 = converterHoraParaDecimal(document.getElementById("horasExtra100").value) || 0;
 
     // Calcula o valor do salário diário e o valor por hora
-    let valorDia = (salarioBrutoHoraExtra / 30).toFixed(2);
-    let valorHora = (valorDia / 8).toFixed(2);
+    let valorDia = (salarioBrutoHoraExtra / 30);
+    let valorHora = (valorDia / 8);
 
     // Calcula o valor das horas extras de 50% e 100%
-    let valorHoraExtra50 = (valorHora * horaExtra50 * 1.5).toFixed(2);
-    let valorHoraExtra100 = (valorHora * horaExtra100 * 2).toFixed(2);
+    let valorHoraExtra50 = (valorHora * horaExtra50 * 1.5);
+    let valorHoraExtra100 = (valorHora * horaExtra100 * 2);
+
+    function calcularINSS() {
+ 
+        let inss = 0;
+
+        if (salarioBrutoHoraExtraTotal <= 1412.00) {
+            inss = salarioBrutoHoraExtraTotal * 0.075;
+        } else if (salarioBrutoHoraExtraTotal <= 2666.68) {
+            inss = (1412 * 0.075) + ((salarioBrutoHoraExtraTotal - 1412) * 0.09);
+        } else if (salarioBrutoHoraExtraTotal <= 4000.03) {
+            inss = (1412 * 0.075) + ((2666.68 - 1412) * 0.09) + ((salarioBrutoHoraExtraTotal - 2666.68) * 0.12);
+        } else if (salarioBrutoHoraExtraTotal <= 7786.02) {
+            inss = (1412 * 0.075) + ((2666.68 - 1412) * 0.09) + ((4000.03 - 2666.68) * 0.12) + ((salarioBrutoHoraExtraTotal - 4000.03) * 0.14);
+        } else {
+            inss = 908.86;
+        }
+
+        
+        return inss;
+    }
+
+    function calcularIRPF() {
+        // Calcula o total de horas extras
+    
+            let inss = calcularINSS();    
+            let baseIRPF = salarioBrutoHoraExtraTotal - inss;
+            let irpf = 0;
+    
+            if (baseIRPF <= 2259.20) {
+                irpf = 0;
+            } else if (baseIRPF <= 2826.65) {
+                irpf = (baseIRPF * 0.075) - 169.44;
+            } else if (baseIRPF <= 3751.05) {
+                irpf = (baseIRPF * 0.15) - 381.44;
+            } else if (baseIRPF <= 4664.68) {
+                irpf = (baseIRPF * 0.225) - 662.77;
+            } else {
+                irpf = (baseIRPF * 0.275) - 896.00;
+            }
+    
+            return irpf;
+        }
 
     // Calcula o total de horas extras
     let totalHoraExtra = parseFloat(valorHoraExtra50) + parseFloat(valorHoraExtra100);
