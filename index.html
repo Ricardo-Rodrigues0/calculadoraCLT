@@ -39,7 +39,7 @@
                 <!-- X===============================================================================X -->
                 <!--                            Menu Principal                                         -->
                 <!-- X===============================================================================X -->
-                <div class="card cardMenu w-100">
+                <div class="card cardMenu w-100 ocultar">
                     <div class="card-body text-center">
                         <a class="navbar-brand mx-auto mb-4 d-flex flex-column align-items-center text-decoration-none"
                             href="./index.html">
@@ -466,7 +466,7 @@
                 <!--                            Calculadora de Rescisão                                -->
                 <!--                                                                                   -->
                 <!-- X===============================================================================X -->
-                <div class="card cardRescisao w-100 ocultar">
+                <div class="card cardRescisao w-100">
                     <div class="card-body">
                         <h5 class="card-title text-center">Calculadora de Rescisão</h5>
                         <div class="row g-3">
@@ -498,8 +498,8 @@
                             <div class="col-md-6 mb-2">
                                 <label for="avisoPrevio" class="form-label">Aviso prévio</label>
                                 <select class="form-select" id="avisoPrevio">
-                                    <option selected value="0" disabled>Selecione uma opção</option>
-                                    <option value="1">Trabalhando</option>
+                                    <option value="0" disabled>Selecione uma opção</option>
+                                    <option selected value="1">Trabalhando</option>
                                     <option value="2">Indenizado</option>
                                     <option value="3">Dispensa do Aviso</option>
                                 </select>
@@ -508,13 +508,23 @@
                             <div class="col-md-6 mb-2">
                                 <label for="motivoSaida" class="form-label">Motivo da saída</label>
                                 <select class="form-select" id="motivoSaida">
-                                    <option selected value="0" disabled>Selecione uma opção</option>
+                                    <option value="0" disabled>Selecione uma opção</option>
                                     <option value="1">Pedido de demissão</option>
-                                    <option value="2">Dispensa sem justa causa</option>
+                                    <option selected value="2">Dispensa sem justa causa</option>
                                     <option value="3">Dispensa com justa causa</option>
                                     <option value="4">Término de contrato</option>
                                     <option value="5">Acordo entre as partes</option>
                                 </select>
+                            </div>
+      
+                            <!-- Checkbox para indicar férias vencidas -->
+                            <div class="col-md-6 mb-2">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="chkFeriasVencidas">
+                                <label class="form-check-label" for="chkFeriasVencidas">
+                                  Possui férias vencidas?
+                                </label>
+                              </div>
                             </div>
 
                             <button class="btn btnCalculo w-100" onclick="calcularRescisao()">Calcular Rescisão</button>
@@ -525,7 +535,7 @@
                 <!-- X===============================================================================X -->
                 <!--                            Resultado da Rescisão                                  -->
                 <!-- X===============================================================================X -->
-                <div class="card cardResultadoRescisao mb-3 mt-3 ocultar" style="max-width: 500px;">
+                <div class="card cardResultadoRescisao mb-3 mt-3" style="max-width: 500px;">
                     <div class="card-body p-3">
                         <h6 class="text-center fw-bold mb-3">Resumo Financeiro</h6>
 
